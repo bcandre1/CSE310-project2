@@ -11,14 +11,53 @@
 #include <string>
 #include "csvRead.h"
 #include "event.h"
+#include <vector>
+#include "maxHeap.h"
 using namespace std;
+
+
+
+
 
 int main() { //write for parameter usage?
 	string fileName ("details-1950.csv");
 	csvRead read;
-	read.csvReadIn(fileName);
+	int year;
+	maxHeap heap;
+	std::vector<event> eventArray1950;
+	std::vector<event> eventArray1951;
+	std::vector<event> eventArray1952;
+	std::vector<event> eventArray1953;
+	std::vector<event> eventArray1966;
+	std::vector<event> eventArray1996;
 
+	year = 1950;
+	if(year == 1950) {
+		string fileName ("details-1950.csv");
+		eventArray1950 = read.csvReadIn(fileName);
+	}
+	else if (year == 1951) {
+		string fileName ("details-1951.csv");
+		eventArray1951 = read.csvReadIn(fileName);
+	}
+	else if (year == 1952) {
+		string fileName ("details-1952.csv");
+		eventArray1952 = read.csvReadIn(fileName);
+	}
+
+	else if (year == 1966) {
+		string fileName ("details-1966.csv");
+		eventArray1966 = read.csvReadIn(fileName);
+	}
+	else if (year == 1996){
+		string fileName ("details-1996.csv");
+		eventArray1996 = read.csvReadIn(fileName);
+	}
+	vector<int> p;
+	string temp = "damage_property";
+	//p = heap.extractDMG(temp, eventArray1950);
 	return 0;
+
 }
 
 

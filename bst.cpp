@@ -7,20 +7,36 @@
  */
 
 #include "bst.h"
-
 #include "event.h"
 
+struct node {
+public:
+	event data;
+	node* left;
+	node* right;
+};
+void insert(event data) {
+	node *tempNode = (struct node*) malloc(sizeof(struct node));
+	node *current;
+	node *parent;
+	tempNode->data = data;
+	tempNode->left = NULL;
+	tempNode->right = NULL;
 
-/*struct bst {
-	char *s;
-	int event_id;
-	int year;
-	int event_index;
-	struct bst *left;
-	struct bst *right;
-};*/
+	//if(root == NULL) {
+
+	//}
+
+}
+node* findEventID (node* root, int event_id) {
+	if(root == NULL || root->data == event_id){
+		return root;
+	}
+	if(root->data.event_id < event_id) {
+		return findEventID(root->right,event_id);
+	}
+	return findEventID(root->left,event_id);
+}
 
 
 
-//The purpose of this file is to implement a binary search tree. With this it can traverse the array to find mathing querys/ parameters
-//Except that I don't know how to make a BST??
